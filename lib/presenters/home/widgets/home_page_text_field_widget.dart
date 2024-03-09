@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sciencedex_project/app.colors.dart';
-import 'package:sciencedex_project/widgets/custom_text.dart';
+import 'package:sciencedex_project/shared/widgets/custom_text.dart';
 
 class HomePageTextFieldWidget extends StatelessWidget {
   const HomePageTextFieldWidget({super.key});

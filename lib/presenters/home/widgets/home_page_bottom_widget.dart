@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sciencedex_project/app.colors.dart';
-import 'package:sciencedex_project/widgets/custom_text.dart';
+import 'package:sciencedex_project/shared/widgets/custom_text.dart';
 
 class HomePageBottomWidget extends StatelessWidget {
   const HomePageBottomWidget({super.key});
@@ -17,7 +17,7 @@ class HomePageBottomWidget extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image(image: AssetImage("lib/assets/img/user.png"), width: 52, height: 52),
+              Image(image: AssetImage("lib/shared/assets/img/user.png"), width: 52, height: 52),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

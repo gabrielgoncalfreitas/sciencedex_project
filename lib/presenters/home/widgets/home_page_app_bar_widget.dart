@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sciencedex_project/widgets/custom_text.dart';
+import 'package:sciencedex_project/shared/widgets/custom_text.dart';
 
 class HomePageAppBarWidget {
   AppBar appBar() {

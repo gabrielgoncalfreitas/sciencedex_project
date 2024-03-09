@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sciencedex_project/presenters/home/widgets/home_page_pop_up_widget.dart';
-import 'package:sciencedex_project/stores/home_page.store.dart';
+import 'package:sciencedex_project/presenters/home/home_page.store.dart';
 
 class HomePageController {
   final HomePageStore store;

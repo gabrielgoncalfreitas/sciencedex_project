@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sciencedex_project/app.colors.dart';
 import 'package:sciencedex_project/presenters/home/widgets/home_page_text_field_widget.dart';
-import 'package:sciencedex_project/widgets/custom_text.dart';
+import 'package:sciencedex_project/shared/widgets/custom_text.dart';
 
 class HomePageTopWidget extends StatelessWidget {
   const HomePageTopWidget({super.key});
@@ -32,7 +32,7 @@ class HomePageTopWidget extends StatelessWidget {
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image(image: AssetImage("lib/assets/img/user.png"), width: 48, height: 48),
+                Image(image: AssetImage("lib/shared/assets/img/user.png"), width: 48, height: 48),
                 CText("Editar Foto", fontWeight: FontWeight.w600, fontSize: 11)
               ],
             ),

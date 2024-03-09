@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sciencedex_project/app.colors.dart';
-import 'package:sciencedex_project/utils/navigate.dart';
-import 'package:sciencedex_project/widgets/custom_button.dart';
-import 'package:sciencedex_project/widgets/custom_text.dart';
+import 'package:sciencedex_project/core/utils/navigate.dart';
+import 'package:sciencedex_project/shared/widgets/custom_button.dart';
+import 'package:sciencedex_project/shared/widgets/custom_text.dart';
 
 class HomePagePopUpWidget extends StatelessWidget {
   const HomePagePopUpWidget({super.key});
