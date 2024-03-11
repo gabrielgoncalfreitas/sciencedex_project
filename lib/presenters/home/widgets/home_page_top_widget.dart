@@ -11,29 +11,21 @@ class HomePageTopWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const SizedBox(
-          width: 200,
-        child: HomePageTextFieldWidget(),
-        ),
+        const SizedBox(width: 200, child: HomePageTextFieldWidget()),
         InkWell(
           child: Container(
             width: 142,
-            padding: const EdgeInsets.only(
-              left: 10,
-              right: 10,
-              top: 6,
-              bottom: 6,
-            ),
+            padding: const EdgeInsets.only(left: 10, right: 10, top: 6, bottom: 6),
             height: 61,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(9),
-              color: AppColors.lightGrayColor,
+              color: AppColors.lightGrayColor
             ),
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Image(image: AssetImage("lib/shared/assets/img/user.png"), width: 48, height: 48),
-                CText("Editar Foto", fontWeight: FontWeight.w600, fontSize: 11)
+                CText("Editar Foto", fontWeight: FontWeight.w600, fontSize: 12)
               ],
             ),
           ),

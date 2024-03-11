@@ -18,16 +18,17 @@ class CButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => onPressed(context),
-      child: Container(
+    return TextButton(
+      onPressed: () => onPressed(context),
+      style: TextButton.styleFrom(
+        minimumSize: Size.zero,
         padding: padding,
-        decoration: BoxDecoration(
-          color: backgroundColor,
+        backgroundColor: backgroundColor ?? Theme.of(context).primaryColor,
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius ?? 15),
         ),
-        child: child,
       ),
+      child: child,
     );
   }
 }

@@ -32,20 +32,19 @@ class HomePagePeriodoListWidget extends StatelessWidget {
           ),
           child: ListView.builder(
             itemCount: 10,
-            physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) => const HomePagePeriodoListItemWidget(),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 14),
+          padding: const EdgeInsets.only(top: 14, bottom: 68),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               CButton(
-                onPressed: core.controller.adicionarPeriodo,
+                onPressed: core.controller.abrirPopUp,
                 backgroundColor: AppColors.primaryColor,
                 padding: const EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
-                child: const CText('Adicionar Período', fontSize: 10, color: AppColors.whiteColor),
+                child: const CText('Adicionar Período', fontSize: 12, color: AppColors.whiteColor),
               )
             ],
           ),
