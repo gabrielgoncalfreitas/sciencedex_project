@@ -34,6 +34,9 @@ class HomePageTextFieldWidget extends StatelessWidget {
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: AppColors.secondaryColor, width: 2.5),
                   ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: AppColors.secondaryColor, width: 2.5),
+                  ),
                   contentPadding: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
                 ),
               ),

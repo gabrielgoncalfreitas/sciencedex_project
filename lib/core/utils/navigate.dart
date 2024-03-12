@@ -5,11 +5,6 @@ class Navigate {
 
   const Navigate(this.context);
 
-  void go({required Widget to}) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) => to));
-  }
-
-  void pop() {
-    Navigator.of(context).pop();
-  }
+  void go({required Widget to}) => Navigator.of(context).push(MaterialPageRoute(builder: (_) => to));
+  void pop() => Navigator.of(context).pop();
 }

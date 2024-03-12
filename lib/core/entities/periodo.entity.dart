@@ -15,7 +15,7 @@ class PeriodoEntity {
     required this.meta2,
   });
 
-  factory PeriodoEntity.init() {
+  factory PeriodoEntity.initial() {
     return PeriodoEntity(
       nomeDoPeriodo: "",
       comeca: DateTime.now(),
@@ -28,16 +28,16 @@ class PeriodoEntity {
 
   PeriodoEntity copyWith({
     String? nomeDoPeriodo,
-    String? comeca,
-    String? termina,
+    DateTime? comeca,
+    DateTime? termina,
     String? categoria,
     String? meta1,
     String? meta2,
   }) {
     return PeriodoEntity(
       nomeDoPeriodo: nomeDoPeriodo ?? this.nomeDoPeriodo,
-      comeca: comeca == null ? this.comeca : DateTime.parse(comeca),
-      termina: termina == null ? this.termina : DateTime.parse(termina),
+      comeca: comeca ?? this.comeca,
+      termina: termina ?? this.termina,
       categoria: categoria ?? this.categoria,
       meta1: meta1 ?? this.meta1,
       meta2: meta2 ?? this.meta2,
@@ -47,8 +47,8 @@ class PeriodoEntity {
   Map<String, dynamic> toMap() {
     return {
       'nomeDoPeriodo': nomeDoPeriodo,
-      'comeca': comeca.toString(),
-      'termina': termina.toString(),
+      'comeca': comeca,
+      'termina': termina,
       'categoria': categoria,
       'meta1': meta1,
       'meta2': meta2,
@@ -58,8 +58,8 @@ class PeriodoEntity {
   factory PeriodoEntity.fromMap(Map<dynamic, dynamic> element) {
     return PeriodoEntity(
       nomeDoPeriodo: element['nomeDoPeriodo'],
-      comeca: DateTime.parse(element['comeca']),
-      termina: DateTime.parse(element['termina']),
+      comeca: element['comeca'],
+      termina: element['termina'],
       categoria: element['categoria'],
       meta1: element['meta1'],
       meta2: element['meta2'],

@@ -10,6 +10,11 @@ class HomePagePopUpFormTextFieldRowWidget extends StatelessWidget {
   final BoxConstraints boxConstraints;
   final TextAlign textAlign;
   final Function(String value) onChanged;
+  final Function(BuildContext context)? onTap;
+  final Color? enabledBorderColor;
+  final Color? focusedBorderColor;
+  final bool readOnly;
+  final EdgeInsets? contentPadding;
 
   const HomePagePopUpFormTextFieldRowWidget({
     super.key,
@@ -22,6 +27,11 @@ class HomePagePopUpFormTextFieldRowWidget extends StatelessWidget {
     this.textAlign = TextAlign.start,
     required this.value,
     required this.onChanged,
+    this.enabledBorderColor,
+    this.focusedBorderColor,
+    this.readOnly = false,
+    this.contentPadding,
+    this.onTap,
   });
 
   @override
@@ -32,18 +42,20 @@ class HomePagePopUpFormTextFieldRowWidget extends StatelessWidget {
       hintText: hintText,
       textAlign: textAlign,
       child: CTextField(
-        contentPadding: const EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
-        enabledBorder: const BorderSide(color: AppColors.secondaryColor),
-        focusedBorder: const BorderSide(color: AppColors.secondaryColor),
+        contentPadding: contentPadding ?? const EdgeInsets.only(left: 8, right: 8, top: 9.5, bottom: 7.5),
+        enabledBorder: BorderSide(color: enabledBorderColor ?? AppColors.secondaryColor),
+        focusedBorder: BorderSide(color: focusedBorderColor ?? AppColors.secondaryColor),
         radius: 8,
         hintText: hintText,
         backgroundColor: AppColors.whiteColor,
         focusBackgroundColor: AppColors.lightGrayColor,
         hintStyle: const TextStyle(color: AppColors.tertiaryColor),
-        textStyle: const TextStyle(fontSize: 12),
+        textStyle: const TextStyle(fontSize: 10),
         textAlign: textAlign,
         value: value,
         onChanged: onChanged,
+        readOnly: readOnly,
+        onTap: onTap,
       ),
     );
   }

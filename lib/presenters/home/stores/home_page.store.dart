@@ -4,19 +4,20 @@ import 'package:sciencedex_project/core/local_storage/local_storage.dart';
 
 class HomePageStore extends ChangeNotifier {
   String _name = "gabriel";
+  bool loading = true;
   List<PeriodoEntity> periodosList = [];
 
   HomePageStore() {
     setPeriodosListState();
   }
 
+  String getName() => _name;
+
   void setName(String name) {
     _name = name;
 
     notifyListeners();
   }
-
-  String getName() => _name;
 
   void setPeriodosListState() async {
     LocalStorage localStorage = LocalStorage();
@@ -31,6 +32,7 @@ class HomePageStore extends ChangeNotifier {
       }
 
       periodosList = list;
+      loading = false;
 
       notifyListeners();
     }

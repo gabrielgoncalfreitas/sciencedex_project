@@ -9,5 +9,6 @@ class AppColors {
   static const lightGrayColor = Color.fromRGBO(245, 245, 250, 1);
   static const whiteColor = Color.fromRGBO(255, 255, 255, 1);
   static const blackColor = Color.fromRGBO(0, 0, 0, 1);
+  static const dangerColor = Color.fromRGBO(255, 0, 0, 1);
   static const none = Colors.transparent;
 }

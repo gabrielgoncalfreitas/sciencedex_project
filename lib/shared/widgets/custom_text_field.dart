@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class CTextField extends StatelessWidget {
   final String? label;
+  final int? maxLength;
   final bool enabled;
   final String? value;
   final String? hintText;
   final TextStyle? hintStyle;
   final bool readOnly;
+  final bool isDense;
   final EdgeInsets? contentPadding;
   final BorderSide enabledBorder;
   final BorderSide focusedBorder;
@@ -18,6 +20,7 @@ class CTextField extends StatelessWidget {
   final double radius;
   final TextAlign textAlign;
   final Function(String value) onChanged;
+  final Function(BuildContext context)? onTap;
 
   const CTextField({
     super.key,
@@ -26,6 +29,7 @@ class CTextField extends StatelessWidget {
     this.value,
     this.hintText,
     this.readOnly = false,
+    this.isDense = true,
     this.contentPadding,
     this.enabledBorder = const BorderSide(),
     this.focusedBorder = const BorderSide(),
@@ -38,6 +42,8 @@ class CTextField extends StatelessWidget {
     this.radius = 5,
     this.textAlign = TextAlign.start,
     required this.onChanged,
+    this.maxLength,
+    this.onTap,
   });
 
   @override
@@ -46,7 +52,7 @@ class CTextField extends StatelessWidget {
       Radius.circular(radius),
     );
 
-    return TextField(
+    return TextFormField(
       textAlign: textAlign,
       decoration: InputDecoration(
         label: label == null ? null : Text(label!),
@@ -70,11 +76,14 @@ class CTextField extends StatelessWidget {
         fillColor: backgroundColor,
         focusColor: focusBackgroundColor,
         filled: filled,
+        isDense: isDense,
       ),
+      maxLength: maxLength,
       style: textStyle,
       controller: TextEditingController(text: value),
       readOnly: readOnly,
       onChanged: (value) => onChanged(value),
+      onTap: onTap == null ? null : () => onTap!(context),
     );
   }
 }

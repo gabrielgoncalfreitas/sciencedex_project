@@ -10,6 +10,9 @@ class HomePagePopUpFormDropdownRowWidget extends StatelessWidget {
   final String value;
   final List<String> dropdownList;
   final Function(String) onChanged;
+  final Color? borderColor;
+  final bool? readOnly;
+  final EdgeInsets? padding;
 
   const HomePagePopUpFormDropdownRowWidget({
     super.key,
@@ -23,6 +26,9 @@ class HomePagePopUpFormDropdownRowWidget extends StatelessWidget {
     required this.value,
     required this.dropdownList,
     required this.onChanged,
+    this.borderColor,
+    this.readOnly,
+    this.padding,
   });
 
   @override
@@ -33,10 +39,12 @@ class HomePagePopUpFormDropdownRowWidget extends StatelessWidget {
       hintText: hintText,
       textAlign: textAlign,
       child: CustomDropdown(
-        padding: const EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
+        padding: padding ?? const EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
         value: value,
         list: dropdownList,
         onChanged: onChanged,
+        borderColor: borderColor,
+        readOnly: readOnly ?? false,
       ),
     );
   }

@@ -15,6 +15,24 @@ class HomePagePeriodoListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget content = core.homePageStore.periodosList.isEmpty
+        ? const Center(child: CText("Não há períodos cadastrados"))
+        : ListView.builder(
+            itemCount: core.homePageStore.periodosList.length,
+            itemBuilder: (context, index) {
+              return HomePagePeriodoListItemWidget(
+                index: index,
+                periodo: core.homePageStore.periodosList[index],
+                abrirEditarPeriodo: ({required context, required periodo}) {
+                  core.controller.abrirEditarPeriodo(
+                    periodoEntity: periodo,
+                    context: context,
+                    index: index,
+                  );
+                },
+              );
+            });
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -24,16 +42,18 @@ class HomePagePeriodoListWidget extends StatelessWidget {
         ),
         Container(
           width: double.infinity,
-          padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+          padding: const EdgeInsets.only(top: 17, bottom: 17),
           height: 378,
-          decoration: BoxDecoration(
-            color: AppColors.lightGrayColor,
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: ListView.builder(
-            itemCount: core.homePageStore.periodosList.length,
-            itemBuilder: (context, index) => HomePagePeriodoListItemWidget(index: index, periodo: core.homePageStore.periodosList[index]),
-          ),
+          decoration: BoxDecoration(color: AppColors.lightGrayColor, borderRadius: BorderRadius.circular(15)),
+          child: core.homePageStore.loading
+              ? const Flex(
+                  direction: Axis.vertical,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircularProgressIndicator()
+                  ],
+                )
+              : content,
         ),
         Padding(
           padding: const EdgeInsets.only(top: 14, bottom: 68),
@@ -41,9 +61,9 @@ class HomePagePeriodoListWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               CButton(
-                onPressed: core.controller.abrirPopUp,
+                onPressed: core.controller.abrirAdicionarPeriodo,
                 backgroundColor: AppColors.primaryColor,
-                padding: const EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
+                padding: const EdgeInsets.only(left: 10, right: 10, top: 7.5, bottom: 7.5),
                 child: const CText('Adicionar Período', fontSize: 12, color: AppColors.whiteColor),
               )
             ],

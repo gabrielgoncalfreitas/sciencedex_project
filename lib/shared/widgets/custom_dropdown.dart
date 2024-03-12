@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sciencedex_project/app.colors.dart';
+import 'package:sciencedex_project/shared/widgets/custom_text.dart';
 
 class CustomDropdown extends StatefulWidget {
   final List<String> list;
@@ -8,6 +9,8 @@ class CustomDropdown extends StatefulWidget {
   final double fontSize;
   final EdgeInsets? padding;
   final Function(String) onChanged;
+  final Color? borderColor;
+  final bool readOnly;
 
   const CustomDropdown({
     super.key,
@@ -17,6 +20,8 @@ class CustomDropdown extends StatefulWidget {
     this.fontSize = 12,
     this.padding,
     required this.onChanged,
+    this.borderColor,
+    this.readOnly = false,
   });
 
   @override
@@ -34,7 +39,10 @@ class _CustomDropdownState extends State<CustomDropdown> {
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: borderRadius,
-        border: Border.all(color: AppColors.secondaryColor, width: 1),
+        border: Border.all(
+          color: widget.readOnly ? AppColors.none : widget.borderColor ?? AppColors.secondaryColor,
+          width: 1,
+        ),
       ),
       padding: widget.padding,
       child: DropdownButton<String>(
@@ -51,14 +59,14 @@ class _CustomDropdownState extends State<CustomDropdown> {
           child: const Icon(Icons.keyboard_arrow_down_rounded),
         ),
         iconSize: 19,
-        iconEnabledColor: AppColors.tertiaryColor,
-        iconDisabledColor: AppColors.tertiaryColor,
+        iconEnabledColor: widget.readOnly ? AppColors.none : AppColors.tertiaryColor,
+        iconDisabledColor: widget.readOnly ? AppColors.none : AppColors.tertiaryColor,
         padding: const EdgeInsets.all(0),
-        onChanged: (value) {},
+        onChanged: widget.readOnly == true ? null : (value) {},
         items: widget.list.map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(
             value: value,
-            child: Text(value),
+            child: CText(value, fontSize: 10),
             onTap: () => widget.onChanged(value),
           );
         }).toList(),

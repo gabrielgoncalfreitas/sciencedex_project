@@ -7,6 +7,7 @@ import 'package:sciencedex_project/presenters/home/widgets/popup/home_page_pop_u
 import 'package:sciencedex_project/shared/widgets/custom_text.dart';
 
 class HomePagePopUpWidget extends StatelessWidget {
+  final int index;
   final HomePageController homePageController;
   final HomePagePopUpStore popUpStore;
 
@@ -14,6 +15,7 @@ class HomePagePopUpWidget extends StatelessWidget {
     super.key,
     required this.homePageController,
     required this.popUpStore,
+    required this.index,
   });
 
   @override
@@ -39,10 +41,7 @@ class HomePagePopUpWidget extends StatelessWidget {
                     offset: const Offset(15, 0),
                     child: IconButton(
                       onPressed: () => Navigate(context).pop(),
-                      icon: const Icon(
-                        Icons.close_rounded,
-                        color: AppColors.tertiaryColor
-                      ),
+                      icon: const Icon(Icons.close_rounded, color: AppColors.tertiaryColor),
                       iconSize: 28,
                       splashColor: AppColors.none,
                       highlightColor: AppColors.none,
@@ -61,6 +60,7 @@ class HomePagePopUpWidget extends StatelessWidget {
                     builder: (context, _) => HomePagePopUpFormWidget(
                       homePageController: homePageController,
                       popUpStore: popUpStore,
+                      index: index,
                     ),
                   ),
                 )

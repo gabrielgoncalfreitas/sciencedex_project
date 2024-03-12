@@ -25,7 +25,7 @@ class HomePagePopUpFormRowWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CText(label, fontSize: 14),
+        CText(label, fontSize: 12),
         Container(
           constraints: boxConstraints,
           child: child,
