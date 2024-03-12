@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sciencedex_project/app.colors.dart';
+import 'package:sciencedex_project/app/app.colors.dart';
 import 'package:sciencedex_project/presenters/home/widgets/home_page_text_field_widget.dart';
 import 'package:sciencedex_project/shared/widgets/custom_text.dart';
 

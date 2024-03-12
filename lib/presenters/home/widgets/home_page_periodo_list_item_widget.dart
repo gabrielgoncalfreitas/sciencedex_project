@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sciencedex_project/app.colors.dart';
+import 'package:sciencedex_project/app/app.colors.dart';
 import 'package:sciencedex_project/core/entities/periodo.entity.dart';
 import 'package:sciencedex_project/core/utils/datetime_to_locale.dart';
 import 'package:sciencedex_project/shared/widgets/custom_text.dart';

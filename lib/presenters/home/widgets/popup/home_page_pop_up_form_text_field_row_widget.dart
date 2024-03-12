@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sciencedex_project/app.colors.dart';
-import 'package:sciencedex_project/app.styles.dart';
+import 'package:sciencedex_project/app/app.colors.dart';
+import 'package:sciencedex_project/app/app.styles.dart';
 import 'package:sciencedex_project/presenters/home/widgets/popup/home_page_pop_up_form_row_widget.dart';
 import 'package:sciencedex_project/shared/widgets/custom_text_field.dart';
 

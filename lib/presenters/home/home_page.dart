@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sciencedex_project/app.layout.dart';
+import 'package:sciencedex_project/app/app.layout.dart';
 import 'package:sciencedex_project/core/home_page.core.dart';
 import 'package:sciencedex_project/presenters/home/stores/home_page.store.dart';
 import 'package:sciencedex_project/presenters/home/stores/home_page_pop_up.store.dart';

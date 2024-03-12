@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sciencedex_project/app.colors.dart';
+import 'package:sciencedex_project/app/app.colors.dart';
 
 class HomePageDividerWidget extends StatelessWidget {
   final double? topPadding;

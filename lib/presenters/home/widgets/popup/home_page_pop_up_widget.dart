@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sciencedex_project/app.colors.dart';
-import 'package:sciencedex_project/app.styles.dart';
+import 'package:sciencedex_project/app/app.colors.dart';
+import 'package:sciencedex_project/app/app.styles.dart';
 import 'package:sciencedex_project/core/utils/navigate.dart';
 import 'package:sciencedex_project/presenters/home/controllers/home_page.controller.dart';
 import 'package:sciencedex_project/presenters/home/stores/home_page_pop_up.store.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:sciencedex_project/app.colors.dart';
+import 'package:sciencedex_project/app/app.colors.dart';
 import 'package:sciencedex_project/shared/widgets/custom_text.dart';
 
 class HomePageBottomWidget extends StatelessWidget {

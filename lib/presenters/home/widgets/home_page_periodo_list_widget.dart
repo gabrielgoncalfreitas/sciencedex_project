@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sciencedex_project/app.colors.dart';
-import 'package:sciencedex_project/app.styles.dart';
+import 'package:sciencedex_project/app/app.colors.dart';
+import 'package:sciencedex_project/app/app.styles.dart';
 import 'package:sciencedex_project/core/home_page.core.dart';
 import 'package:sciencedex_project/presenters/home/widgets/home_page_periodo_list_item_widget.dart';
 import 'package:sciencedex_project/shared/widgets/custom_button.dart';
