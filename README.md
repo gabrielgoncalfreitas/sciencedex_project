@@ -1,16 +1,24 @@
-# sciencedex_project
+# ScienceDex
 
-A new Flutter project.
+![](/project_short_preview.gif)
 
-## Getting Started
+## Escopo do projeto:
 
-This project is a starting point for a Flutter application.
+Crie uma pagina de acordo com um layout abaixo
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Requisitos:
+  - Responsividade em diversos tamanhos de tela
+- Funcionamento Basico
+  - Ao Clicar em “Adicionar Período”, deve abrir um pop-up, para preenchimento das informações, como datas, categorias dropdown, metas.
+  - Dando a possibilidade tanto de excluir quanto de editar as informações
+  - Ao fechar o app e abrir novamente as informações devem se manter
+- **Atenção**
+  - **Alinhamentos são extremamente importantes**
+  - **Proporcionalidade de Fonte também**
+- Critérios Avaliativos
+  - Código Limpo
+  - Usabilidade
+  - Tempo de desenvolvimento
+  - Compreensão do Objetivo
+- UI proposto:
+  - ![](/project_preview.png)
