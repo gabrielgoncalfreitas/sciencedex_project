@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sciencedex_project/app.colors.dart';
+import 'package:sciencedex_project/app.styles.dart';
 import 'package:sciencedex_project/shared/widgets/custom_text.dart';
 
 class CustomDropdown extends StatefulWidget {
@@ -52,7 +53,10 @@ class _CustomDropdownState extends State<CustomDropdown> {
         underline: Container(),
         style: TextStyle(
           color: Colors.black,
-          fontSize: widget.fontSize,
+          fontSize: AppStyles.calculateFontSize(
+            context: context,
+            currentSize: widget.fontSize,
+          ),
         ),
         icon: Transform.translate(
           offset: const Offset(8, 0),
@@ -66,7 +70,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
         items: widget.list.map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(
             value: value,
-            child: CText(value, fontSize: 10),
+            child: CText(value, fontSize: AppStyles.calculateFontSize(context: context, currentSize: 10)),
             onTap: () => widget.onChanged(value),
           );
         }).toList(),

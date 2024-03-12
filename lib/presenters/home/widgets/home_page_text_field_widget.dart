@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sciencedex_project/app.colors.dart';
+import 'package:sciencedex_project/app.styles.dart';
 import 'package:sciencedex_project/shared/widgets/custom_text.dart';
 
 class HomePageTextFieldWidget extends StatelessWidget {
@@ -18,12 +19,7 @@ class HomePageTextFieldWidget extends StatelessWidget {
           direction: Axis.horizontal,
           children: [
             Container(
-              constraints: const BoxConstraints(
-                maxHeight: 47,
-                minHeight: 47,
-                maxWidth: 200,
-                minWidth: 200,
-              ),
+              constraints: AppStyles.getHomePageTopWidgetApelidoContainerConstraints(context),
               child: const TextField(
                 style: TextStyle(fontSize: 16),
                 decoration: InputDecoration(

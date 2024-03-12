@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sciencedex_project/app.colors.dart';
+import 'package:sciencedex_project/app.styles.dart';
 import 'package:sciencedex_project/core/utils/datetime_to_locale.dart';
 import 'package:sciencedex_project/presenters/home/controllers/home_page.controller.dart';
 import 'package:sciencedex_project/presenters/home/stores/home_page_pop_up.store.dart';
@@ -25,13 +26,18 @@ class HomePagePopUpFormCrudModeWidget extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 8.0),
         child: CTextField(
           hintText: "Nomeie seu período",
-          contentPadding: const EdgeInsets.only(left: 8, right: 8, top: 11, bottom: 11),
+          contentPadding: AppStyles.getNomeDoPeriodoTextFieldPadding(context),
           enabledBorder: const BorderSide(color: AppColors.none),
           focusedBorder: const BorderSide(color: AppColors.none),
           backgroundColor: AppColors.lightGrayColor,
           focusBackgroundColor: AppColors.lightGrayColor,
           hintStyle: const TextStyle(color: AppColors.mediumGrayColor),
-          textStyle: const TextStyle(fontSize: 12),
+          textStyle: TextStyle(
+            fontSize: AppStyles.calculateFontSize(
+              context: context,
+              currentSize: 12,
+            ),
+          ),
           value: popUpStore.periodosEntity.nomeDoPeriodo,
           onChanged: (value) => homePageController.onChanged(nomeDoPeriodo: value),
         ),
@@ -43,28 +49,33 @@ class HomePagePopUpFormCrudModeWidget extends StatelessWidget {
           child: Column(
             children: [
               HomePagePopUpFormTextFieldRowWidget(
+                boxConstraints: AppStyles.getTextFieldsConstraints(context),
                 label: "Começa",
                 value: dateTimeToDetailed(popUpStore.periodosEntity.comeca),
                 onChanged: (value) => homePageController.onChanged(comeca: DateTime.parse(value)),
                 onTap: (context) => homePageController.abrirDatePicker(
                   context: context,
+                  initialDate: popUpStore.periodosEntity.comeca,
                   onSelectDate: homePageController.onComecaChanged,
                 ),
                 readOnly: true,
               ),
               const HomePageDividerWidget(topPadding: 7, bottomPadding: 7, thickness: 1),
               HomePagePopUpFormTextFieldRowWidget(
+                boxConstraints: AppStyles.getTextFieldsConstraints(context),
                 label: "Termina",
                 value: dateTimeToDetailed(popUpStore.periodosEntity.termina),
                 onChanged: (value) => homePageController.onChanged(termina: DateTime.parse(value)),
                 onTap: (context) => homePageController.abrirDatePicker(
                   context: context,
+                  initialDate: popUpStore.periodosEntity.termina,
                   onSelectDate: homePageController.onTerminaChanged,
                 ),
                 readOnly: true,
               ),
               const HomePageDividerWidget(topPadding: 7, bottomPadding: 7, thickness: 1),
               HomePagePopUpFormDropdownRowWidget(
+                boxConstraints: AppStyles.getTextFieldsConstraints(context),
                 label: "Categoria",
                 value: popUpStore.periodosEntity.categoria,
                 dropdownList: popUpStore.dropdownList,

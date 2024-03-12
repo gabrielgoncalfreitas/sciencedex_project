@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sciencedex_project/app.colors.dart';
+import 'package:sciencedex_project/app.styles.dart';
 import 'package:sciencedex_project/presenters/home/widgets/popup/home_page_pop_up_form_row_widget.dart';
 import 'package:sciencedex_project/shared/widgets/custom_text_field.dart';
 
@@ -7,7 +8,7 @@ class HomePagePopUpFormTextFieldRowWidget extends StatelessWidget {
   final String label;
   final String value;
   final String? hintText;
-  final BoxConstraints boxConstraints;
+  final BoxConstraints? boxConstraints;
   final TextAlign textAlign;
   final Function(String value) onChanged;
   final Function(BuildContext context)? onTap;
@@ -20,10 +21,7 @@ class HomePagePopUpFormTextFieldRowWidget extends StatelessWidget {
     super.key,
     required this.label,
     this.hintText,
-    this.boxConstraints = const BoxConstraints(
-      maxWidth: 103,
-      maxHeight: 29,
-    ),
+    this.boxConstraints,
     this.textAlign = TextAlign.start,
     required this.value,
     required this.onChanged,
@@ -50,7 +48,12 @@ class HomePagePopUpFormTextFieldRowWidget extends StatelessWidget {
         backgroundColor: AppColors.whiteColor,
         focusBackgroundColor: AppColors.lightGrayColor,
         hintStyle: const TextStyle(color: AppColors.tertiaryColor),
-        textStyle: const TextStyle(fontSize: 10),
+        textStyle: TextStyle(
+          fontSize: AppStyles.calculateFontSize(
+            context: context,
+            currentSize: 10,
+          ),
+        ),
         textAlign: textAlign,
         value: value,
         onChanged: onChanged,

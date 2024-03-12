@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sciencedex_project/app.colors.dart';
 
 class CTextField extends StatelessWidget {
   final String? label;
@@ -52,7 +53,7 @@ class CTextField extends StatelessWidget {
       Radius.circular(radius),
     );
 
-    return TextFormField(
+    final textFormField = TextFormField(
       textAlign: textAlign,
       decoration: InputDecoration(
         label: label == null ? null : Text(label!),
@@ -85,5 +86,7 @@ class CTextField extends StatelessWidget {
       onChanged: (value) => onChanged(value),
       onTap: onTap == null ? null : () => onTap!(context),
     );
+
+    return textFormField;
   }
 }

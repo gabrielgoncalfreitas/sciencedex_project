@@ -18,10 +18,7 @@ class HomePagePopUpFormDropdownRowWidget extends StatelessWidget {
     super.key,
     required this.label,
     this.hintText,
-    this.boxConstraints = const BoxConstraints(
-      maxWidth: 103,
-      maxHeight: 29,
-    ),
+    required this.boxConstraints,
     this.textAlign = TextAlign.start,
     required this.value,
     required this.dropdownList,

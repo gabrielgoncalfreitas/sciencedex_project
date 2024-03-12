@@ -32,9 +32,9 @@ class HomePageStore extends ChangeNotifier {
       }
 
       periodosList = list;
-      loading = false;
-
-      notifyListeners();
     }
+
+    loading = false;
+    notifyListeners();
   }
 }
