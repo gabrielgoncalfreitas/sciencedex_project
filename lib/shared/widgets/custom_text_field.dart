@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sciencedex_project/app.colors.dart';
 
 class CTextField extends StatelessWidget {
   final String? label;
