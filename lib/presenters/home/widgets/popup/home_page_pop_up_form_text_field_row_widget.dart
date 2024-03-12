@@ -5,9 +5,11 @@ import 'package:sciencedex_project/shared/widgets/custom_text_field.dart';
 
 class HomePagePopUpFormTextFieldRowWidget extends StatelessWidget {
   final String label;
+  final String value;
   final String? hintText;
   final BoxConstraints boxConstraints;
   final TextAlign textAlign;
+  final Function(String value) onChanged;
 
   const HomePagePopUpFormTextFieldRowWidget({
     super.key,
@@ -18,6 +20,8 @@ class HomePagePopUpFormTextFieldRowWidget extends StatelessWidget {
       maxHeight: 29,
     ),
     this.textAlign = TextAlign.start,
+    required this.value,
+    required this.onChanged,
   });
 
   @override
@@ -38,6 +42,8 @@ class HomePagePopUpFormTextFieldRowWidget extends StatelessWidget {
         hintStyle: const TextStyle(color: AppColors.tertiaryColor),
         textStyle: const TextStyle(fontSize: 12),
         textAlign: textAlign,
+        value: value,
+        onChanged: onChanged,
       ),
     );
   }

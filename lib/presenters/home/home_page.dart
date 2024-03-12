@@ -19,8 +19,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-
     return AppLayout(
       appBar: HomePageAppBarWidget().appBar(),
       body: Padding(

@@ -7,6 +7,7 @@ class CustomDropdown extends StatefulWidget {
   final double radius;
   final double fontSize;
   final EdgeInsets? padding;
+  final Function(String) onChanged;
 
   const CustomDropdown({
     super.key,
@@ -15,6 +16,7 @@ class CustomDropdown extends StatefulWidget {
     this.radius = 5,
     this.fontSize = 12,
     this.padding,
+    required this.onChanged,
   });
 
   @override
@@ -57,6 +59,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
           return DropdownMenuItem<String>(
             value: value,
             child: Text(value),
+            onTap: () => widget.onChanged(value),
           );
         }).toList(),
       ),

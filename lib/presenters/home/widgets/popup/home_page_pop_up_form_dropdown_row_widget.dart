@@ -7,6 +7,9 @@ class HomePagePopUpFormDropdownRowWidget extends StatelessWidget {
   final String? hintText;
   final BoxConstraints boxConstraints;
   final TextAlign textAlign;
+  final String value;
+  final List<String> dropdownList;
+  final Function(String) onChanged;
 
   const HomePagePopUpFormDropdownRowWidget({
     super.key,
@@ -17,6 +20,9 @@ class HomePagePopUpFormDropdownRowWidget extends StatelessWidget {
       maxHeight: 29,
     ),
     this.textAlign = TextAlign.start,
+    required this.value,
+    required this.dropdownList,
+    required this.onChanged,
   });
 
   @override
@@ -26,16 +32,11 @@ class HomePagePopUpFormDropdownRowWidget extends StatelessWidget {
       boxConstraints: boxConstraints,
       hintText: hintText,
       textAlign: textAlign,
-      child: const CustomDropdown(
-        padding: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
-        value: "Categoria 1",
-        list: [
-          'Categoria 1',
-          'Categoria 2',
-          'Categoria 3',
-          'Categoria 4',
-          'Categoria 5',
-        ],
+      child: CustomDropdown(
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
+        value: value,
+        list: dropdownList,
+        onChanged: onChanged,
       ),
     );
   }

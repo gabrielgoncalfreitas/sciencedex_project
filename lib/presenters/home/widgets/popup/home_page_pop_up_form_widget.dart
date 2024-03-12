@@ -23,54 +23,73 @@ class HomePagePopUpFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.only(bottom: 8.0),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
           child: CTextField(
             hintText: "Nomeie seu período",
-            contentPadding: EdgeInsets.only(left: 8, right: 8, top: 0, bottom: 0),
-            enabledBorder: BorderSide(color: Color.fromRGBO(0, 0, 0, 0)),
-            focusedBorder: BorderSide(color: Color.fromRGBO(0, 0, 0, 0)),
+            contentPadding: const EdgeInsets.only(left: 8, right: 8, top: 0, bottom: 0),
+            enabledBorder: const BorderSide(color: Color.fromRGBO(0, 0, 0, 0)),
+            focusedBorder: const BorderSide(color: Color.fromRGBO(0, 0, 0, 0)),
             backgroundColor: AppColors.lightGrayColor,
             focusBackgroundColor: AppColors.lightGrayColor,
-            hintStyle: TextStyle(color: AppColors.mediumGrayColor),
-            textStyle: TextStyle(fontSize: 13),
+            hintStyle: const TextStyle(color: AppColors.mediumGrayColor),
+            textStyle: const TextStyle(fontSize: 13),
+            value: popUpStore.periodosEntity.nomeDoPeriodo,
+            onChanged: (value) => homePageController.onChanged(nomeDoPeriodo: value),
           ),
         ),
         Container(
           color: AppColors.lightGrayColor,
-          child: const Padding(
-            padding: EdgeInsets.all(8.0),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                HomePagePopUpFormTextFieldRowWidget(label: "Começa"),
-                HomePageDividerWidget(topPadding: 7, bottomPadding: 7, thickness: 1),
-                HomePagePopUpFormTextFieldRowWidget(label: "Termina"),
-                HomePageDividerWidget(topPadding: 7, bottomPadding: 7, thickness: 1),
-                HomePagePopUpFormDropdownRowWidget(label: "Categoria"),
+                HomePagePopUpFormTextFieldRowWidget(
+                  label: "Começa",
+                  value: popUpStore.periodosEntity.comeca.toString(),
+                  onChanged: (value) => homePageController.onChanged(comeca: value),
+                ),
+                const HomePageDividerWidget(topPadding: 7, bottomPadding: 7, thickness: 1),
+                HomePagePopUpFormTextFieldRowWidget(
+                  label: "Termina",
+                  value: popUpStore.periodosEntity.termina.toString(),
+                  onChanged: (value) => homePageController.onChanged(termina: value),
+                ),
+                const HomePageDividerWidget(topPadding: 7, bottomPadding: 7, thickness: 1),
+                HomePagePopUpFormDropdownRowWidget(
+                  label: "Categoria",
+                  value: popUpStore.periodosEntity.categoria,
+                  dropdownList: popUpStore.dropdownList,
+                  onChanged: (value) => homePageController.onDropdownChanged(categoria: value),
+                ),
               ],
             ),
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.only(left: 8, right: 8, top: 16, bottom: 16),
+        Padding(
+          padding: const EdgeInsets.only(left: 8, right: 8, top: 16, bottom: 16),
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(bottom: 9),
+                padding: const EdgeInsets.only(bottom: 9),
                 child: HomePagePopUpFormTextFieldRowWidget(
                   label: "Meta 1",
-                  boxConstraints: BoxConstraints(maxWidth: 64, maxHeight: 29),
+                  boxConstraints: const BoxConstraints(maxWidth: 64, maxHeight: 29),
                   hintText: "Un",
                   textAlign: TextAlign.center,
+                  value: popUpStore.periodosEntity.meta1,
+                  onChanged: (value) => homePageController.onChanged(meta1: value),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 9),
+                padding: const EdgeInsets.only(top: 9),
                 child: HomePagePopUpFormTextFieldRowWidget(
                   label: "Meta 2",
-                  boxConstraints: BoxConstraints(maxWidth: 64, maxHeight: 29),
+                  boxConstraints: const BoxConstraints(maxWidth: 64, maxHeight: 29),
                   hintText: "Un",
                   textAlign: TextAlign.center,
+                  value: popUpStore.periodosEntity.meta2,
+                  onChanged: (value) => homePageController.onChanged(meta2: value),
                 ),
               ),
             ],
@@ -79,7 +98,7 @@ class HomePagePopUpFormWidget extends StatelessWidget {
         Center(
           child: CButton(
             backgroundColor: AppColors.primaryColor,
-            onPressed: (context) => homePageController.adicionarPeriodo(),
+            onPressed: (context) => homePageController.adicionarPeriodo(context),
             borderRadius: 20,
             padding: const EdgeInsets.only(left: 20, right: 20, top: 8, bottom: 8),
             child: const CText(

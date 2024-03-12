@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:sciencedex_project/app.colors.dart';
+import 'package:sciencedex_project/core/entities/periodo.entity.dart';
 import 'package:sciencedex_project/shared/widgets/custom_text.dart';
 
 class HomePagePeriodoListItemWidget extends StatelessWidget {
-  const HomePagePeriodoListItemWidget({super.key});
+  final int index;
+  final PeriodoEntity periodo;
+
+  const HomePagePeriodoListItemWidget({
+    super.key,
+    required this.index,
+    required this.periodo,
+  });
+
+  String dateTimeToString(DateTime date) {
+    String formattedDate = DateFormat('dd/MM/yyyy').format(date);
+
+    return formattedDate;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +37,12 @@ class HomePagePeriodoListItemWidget extends StatelessWidget {
             ),
             height: 42,
             alignment: Alignment.center,
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CText("Super Feirão", fontWeight: FontWeight.w600),
+                CText(periodo.nomeDoPeriodo, fontWeight: FontWeight.w600),
                 CText(
-                  "01/08/23 a 30/03/24",
+                  "${dateTimeToString(periodo.comeca)} a ${dateTimeToString(periodo.termina)}",
                   fontWeight: FontWeight.w400,
                   fontSize: 11,
                   color: AppColors.grayColor,

@@ -17,6 +17,7 @@ class CTextField extends StatelessWidget {
   final TextStyle textStyle;
   final double radius;
   final TextAlign textAlign;
+  final Function(String value) onChanged;
 
   const CTextField({
     super.key,
@@ -36,6 +37,7 @@ class CTextField extends StatelessWidget {
     this.hintStyle = const TextStyle(),
     this.radius = 5,
     this.textAlign = TextAlign.start,
+    required this.onChanged,
   });
 
   @override
@@ -72,6 +74,7 @@ class CTextField extends StatelessWidget {
       style: textStyle,
       controller: TextEditingController(text: value),
       readOnly: readOnly,
+      onChanged: (value) => onChanged(value),
     );
   }
 }

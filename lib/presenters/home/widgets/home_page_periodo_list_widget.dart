@@ -31,8 +31,8 @@ class HomePagePeriodoListWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
           child: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) => const HomePagePeriodoListItemWidget(),
+            itemCount: core.homePageStore.periodosList.length,
+            itemBuilder: (context, index) => HomePagePeriodoListItemWidget(index: index, periodo: core.homePageStore.periodosList[index]),
           ),
         ),
         Padding(
